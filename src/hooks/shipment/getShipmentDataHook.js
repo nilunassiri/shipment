@@ -12,7 +12,7 @@ function getShipment() {
     axios
       .get(url)
       .then((response) => {
-        setData(response);
+        setData(response.data);
       })
       .catch((err) => {
         setError(err);
