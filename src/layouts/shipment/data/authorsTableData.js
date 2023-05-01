@@ -1,16 +1,32 @@
+import { useState } from "react";
+
 export default function data(shipments) {
-  if (shipments == null) {
+  const [shipmentData, setShipmentData] = useState([
+    {
+      orderNo: "",
+      date: "",
+      customer: "",
+      trackingNo: "",
+      status: "",
+      consignee: "",
+    },
+  ]);
+
+  if (shipments != null && shipmentData.length === 1) {
+    const parsedShipmentData = [];
     // eslint-disable-next-line no-param-reassign
-    shipments = [
-      {
-        orderNo: "",
-        date: "",
-        customer: "",
-        trackingNo: "",
-        status: "",
-        consignee: "",
-      },
-    ];
+    shipments.forEach((shipment) => {
+      parsedShipmentData.push({
+        orderNo: shipment.orderNo,
+        date: shipment.date,
+        customer: shipment.customer,
+        trackingNo: shipment.trackingNo,
+        status: shipment.status,
+        consignee: shipment.consignee,
+        action: <h2>Salam</h2>,
+      });
+    });
+    setShipmentData(parsedShipmentData);
   }
 
   return {
@@ -21,7 +37,8 @@ export default function data(shipments) {
       { Header: "trackingNo", accessor: "trackingNo", align: "center" },
       { Header: "status", accessor: "status", align: "center" },
       { Header: "consignee", accessor: "consignee", align: "center" },
+      { Header: "action", accessor: "action", align: "center" },
     ],
-    rows: shipments,
+    rows: shipmentData,
   };
 }
