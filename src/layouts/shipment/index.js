@@ -28,8 +28,8 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import authorsTableData from "layouts/tables/data/authorsTableData";
-import projectsTableData from "layouts/tables/data/projectsTableData";
+import authorsTableData from "layouts/shipment/data/authorsTableData";
+import projectsTableData from "layouts/shipment/data/projectsTableData";
 
 function Tables() {
   const { columns, rows } = authorsTableData();
