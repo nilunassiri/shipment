@@ -1,6 +1,12 @@
+import MDButton from "components/MDButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteShipment } from "features/shipment/shipmentSlice";
 
 export default function data(shipments) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [shipmentData, setShipmentData] = useState([
     {
       orderNo: "",
@@ -11,6 +17,11 @@ export default function data(shipments) {
       consignee: "",
     },
   ]);
+
+  function showDetailNavigator(orderNo) {
+    const mainPath = "/shipment/detail/";
+    navigate(mainPath.concat(orderNo));
+  }
 
   if (shipments != null && shipmentData.length === 1) {
     const parsedShipmentData = [];
@@ -23,7 +34,17 @@ export default function data(shipments) {
         trackingNo: shipment.trackingNo,
         status: shipment.status,
         consignee: shipment.consignee,
-        action: <a href="/shipment/detail"> Show Detail </a>,
+        // eslint-disable-next-line react/button-has-type
+        action: (
+          <>
+            <MDButton color="#ff8a80" onClick={() => showDetailNavigator(shipment.orderNo)}>
+              Show Detail
+            </MDButton>
+            <MDButton color="#ff8a80" onClick={() => dispatch(deleteShipment(shipment.orderNo))}>
+              Delete
+            </MDButton>
+          </>
+        ),
       });
     });
     setShipmentData(parsedShipmentData);

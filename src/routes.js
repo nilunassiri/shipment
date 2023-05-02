@@ -61,7 +61,7 @@ const routes = [
     component: <Shipment />,
   },
   {
-    route: "/shipment/detail",
+    route: "/shipment/detail/:orderNo",
     component: <ShowShipment />,
   },
 ];

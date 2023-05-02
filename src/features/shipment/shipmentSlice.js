@@ -14,10 +14,15 @@ export const shipmentSlice = createSlice({
     tuggleStatus: (state) => {
       state.status = !state.status;
     },
+    deleteShipment: (state, action) => {
+      console.log("data after remove");
+      state.value = state.value.filter((shipment) => shipment.orderNo !== action.payload);
+      console.log(state.value);
+    },
   },
 });
 
-export const { save, tuggleStatus } = shipmentSlice.actions;
+export const { save, tuggleStatus, deleteShipment } = shipmentSlice.actions;
 
 export const selectShipment = (state) => state.shipment.value;
 

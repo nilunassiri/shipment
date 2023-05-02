@@ -6,8 +6,11 @@ import MDBox from "components/MDBox";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
+import getShipmentData from "hooks/shipment/getShipmentDataHook";
 
 function Dashboard() {
+  const { data } = getShipmentData();
+  console.log(data);
   return (
     <DashboardLayout>
       <Grid item xs={12} md={6} lg={6}>

@@ -28,12 +28,12 @@ import Footer from "examples/Footer";
 import DataTable from "examples/Tables/DataTable";
 
 // Data
-import getShipmentData from "hooks/shipment/getShipmentDataHook";
 import ShipmentsTableData from "layouts/shipment/data/shipmentsTableData";
+import { useSelector } from "react-redux";
 
 function Tables() {
-  const { data } = getShipmentData();
-  const { columns, rows } = ShipmentsTableData(data);
+  const shipmentSlicer = useSelector((state) => state.shipment);
+  const { columns, rows } = ShipmentsTableData(shipmentSlicer.value);
 
   return (
     <DashboardLayout>
