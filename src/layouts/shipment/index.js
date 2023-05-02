@@ -29,11 +29,11 @@ import DataTable from "examples/Tables/DataTable";
 
 // Data
 import getShipmentData from "hooks/shipment/getShipmentDataHook";
-import authorsTableData from "layouts/shipment/data/authorsTableData";
+import ShipmentsTableData from "layouts/shipment/data/shipmentsTableData";
 
 function Tables() {
   const { data } = getShipmentData();
-  const { columns, rows } = authorsTableData(data);
+  const { columns, rows } = ShipmentsTableData(data);
 
   return (
     <DashboardLayout>

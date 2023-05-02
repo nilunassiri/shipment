@@ -38,6 +38,7 @@ Coded by www.creative-tim.com
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
 import Shipment from "layouts/shipment";
+import ShowShipment from "layouts/shipment/showShipment";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -58,6 +59,10 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/shipment",
     component: <Shipment />,
+  },
+  {
+    route: "/shipment/detail",
+    component: <ShowShipment />,
   },
 ];
 
