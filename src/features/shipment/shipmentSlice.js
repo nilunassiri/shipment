@@ -4,16 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const shipmentSlice = createSlice({
   name: "shipment",
   initialState: {
-    value: [
-      {
-        orderNo: "1",
-        date: "123",
-        customer: "23443",
-        trackingNo: "34345",
-        status: "456456",
-        consignee: "567657",
-      },
-    ],
+    value: [],
     status: false,
   },
   reducers: {
