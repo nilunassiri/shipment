@@ -1,5 +1,5 @@
 import MDButton from "components/MDButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { deleteShipment } from "features/shipment/shipmentSlice";
@@ -23,7 +23,7 @@ export default function data(shipments) {
     navigate(mainPath.concat(orderNo));
   }
 
-  if (shipments != null && shipmentData.length === 1) {
+  useEffect(() => {
     const parsedShipmentData = [];
     // eslint-disable-next-line no-param-reassign
     shipments.forEach((shipment) => {
@@ -48,7 +48,7 @@ export default function data(shipments) {
       });
     });
     setShipmentData(parsedShipmentData);
-  }
+  }, [shipments]);
 
   return {
     columns: [
